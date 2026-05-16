@@ -1,0 +1,115 @@
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 4px; }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(-2deg); }
+  40% { transform: skew(0deg); }
+  60% { transform: skew(1deg); }
+  80% { transform: skew(0deg); }
+  100% { transform: skew(-1deg); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+  52% { opacity: 0.9; }
+  54% { opacity: 1; }
+  90% { opacity: 0.92; }
+}
+
+@keyframes chromatic-shift {
+  0%, 100% { text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; }
+  25% { text-shadow: -3px 0 #ff00ff, 3px 0 #00ffff; }
+  50% { text-shadow: -1px 0 #ff00ff, 1px 0 #00ffff; }
+  75% { text-shadow: -4px 0 #ff00ff, 4px 0 #00ffff; }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px currentColor) drop-shadow(0 0 10px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px currentColor) drop-shadow(0 0 30px currentColor);
+  }
+}
+
+@keyframes data-stream {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-2px, -1px) rotate(-0.5deg); }
+  20% { transform: translate(2px, 1px) rotate(0.5deg); }
+  30% { transform: translate(-1px, 2px) rotate(-0.5deg); }
+  40% { transform: translate(1px, -1px) rotate(0.5deg); }
+  50% { transform: translate(-2px, 1px) rotate(-0.5deg); }
+  60% { transform: translate(2px, 2px) rotate(0.5deg); }
+  70% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+  80% { transform: translate(1px, 1px) rotate(0.5deg); }
+  90% { transform: translate(-2px, -1px) rotate(-0.5deg); }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0012;
+  overflow: hidden;
+  font-family: 'Orbitron', monospace;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a0012 0%, #1a0030 50%, #0d001f 100%);
+}
+
+.canvas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 8px 16px;
+  text-align: center;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+
+.footer-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.footer .handle {
+  color: rgba(0, 255, 255, 0.5);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .footer {
+    padding: 12px 16px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}
